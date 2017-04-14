@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		window.onload=function(){
+		var x = document.getElementsByClassName("abc")[0];
+		var y = document.getElementsByTagName("p")[0];
+		y.innerHTML = x.nextSibling.nextSibling.nodeType;
+		}
+		function changeLink()
+		{
+		document.getElementById('myAnchor').innerHTML="W3School";
+		document.getElementById('myAnchor').href="http://www.w3school.com.cn";
+		document.getElementById('myAnchor').target="_blank";
+		}
+	</script>
+	<body>
+		<div class="abc">1231231</div>
+		<p></p>
+		<a id="myAnchor" href="http://www.microsoft.com">微软</a>
+		<input type="button" onclick="changeLink()" value="更改链接">
+	</body>
+</html>

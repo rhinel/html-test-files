@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<title>进行测试</title>
+		<script src="http://www.imooc.com/data/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="divtest">
+			<div id="div1">
+				<input id="inputbox" type="text" />
+				<input id="button1" type="button" value="提交" />
+				<input id="button2" type="button" value="刷新" />
+			</div>
+			<div id="div2">
+				<div id="divMsg"></div>
+				<div id="text1"></div>
+				<h2>留言板<h2>
+				<div id="text2"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				 //元素绑定全局ajaxStart事件
+    			$("#divMsg").ajaxStart(function() {
+        		$(this).html("正在传输……").show(); //显示元素
+    			})
+    			//元素绑定全局ajaxStop事件
+    			$("#divMsg").ajaxStop(function() {
+        		$(this).html("已完成");
+    			})
+				
+				//提交按钮事件--检测是否为空
+    			$("#button1").click(function() { //按钮点击事件
+    				var $content = $("#inputbox"); //发送内容
+					if ($content.val() != "") {
+						//alert("发送能为空!");
+						SendContent();
+					}
+        			else {
+            			alert("发送不能为空!");
+            			$content.focus();
+            			return false;
+        			}
+    			})
+    			
+    			//刷新按钮事件
+    			$("#button2").click(function(){
+    				GetMessage()
+    			})
+			});
+			
+			//定义提交事件--提交成功后清空，失败后返回失败
+			function SendContent() {
+				var con=$("#inputbox");
+				$.ajax({
+					url:"test6-php.php",
+					type:"GET",
+					dataType:"json",
+        			data:{name:con.val(),day:get_day()},
+        			success: function(data) {
+						if (data.length!=0) {
+                			var ht=$("#text2").html();
+							ht+="："+data[0]+"<br/>"+data[1]+"<br/>";
+							$("#text2").html(ht);
+							$("#text1").html("发送成功");
+							$("#inputbox").val("");
+							con.empty();
+            			}
+            			else {
+                			$("#text1").html("发送失败");
+                			return false;
+            			}
+            		}
+        		})
+			};
+			//定义刷新事件
+			function GetMessage(){
+				$.ajax({
+					url:"test6-php.php",
+					type:"GET",
+				})
+			};
+			
+			//定义时间事件
+			function get_day(){
+	            var t=new Date();
+	            var y=t.getFullYear();
+	            var m=t.getMonth();
+	            var d=t.getDate();
+	            var h=t.getHours();
+	            var f=t.getMinutes();
+	            var s=t.getSeconds();
+	            var wek=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+	              var week=t.getDay();
+	            var weekd=wek[week];
+	            var time="某位在"+y+"年"+m+"月"+d+"日"+h+"时"+f+"分"+s+"秒"+weekd+"回复道。";
+	            return(time);
+          	};
+			
+		</script>
+	</body>
+</html>

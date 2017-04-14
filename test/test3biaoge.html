@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>   
+  <script type="text/javascript"> 
+  	  var i =3;
+      window.onload = function(){
+     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+        var b=document.body.getElementsByTagName("td");
+        for(var j=0;j<b.length;j++){
+        shubiao(b[j]);
+        }
+     }
+     function shubiao(obj){
+         obj.onmouseover=function(){obj.style.backgroundColor="#f2f2f2";}
+        obj.onmouseout=function(){
+            obj.style.backgroundColor="#fff";
+     }
+     }
+     // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+    function zengjia(){
+        var table=document.getElementById("table");
+        var a=document.createElement("tr");
+        var a1=document.createElement("td");
+        a1.innerHTML="xh00"+i;
+        i++;
+        var a2=document.createElement("td");
+        a2.innerHTML=prompt("请输入姓名", "张三");
+        var a3=document.createElement("td");
+        //a3.innerHTML="<a href='javascript:;' onclick='dianji(this)'>删除</a>";
+        var a4=document.createElement("a");
+        a4.innerHTML="删除";
+        a4.href="javascript:;";
+        a4.onclick=function(){dianji(this)};
+        a3.appendChild(a4);
+        a.appendChild(a1);
+        a.appendChild(a2);
+        a.appendChild(a3);
+        table.appendChild(a);
+        var b=document.body.getElementsByTagName("td");
+        for(var j=0;j<b.length;j++){
+        shubiao(b[j]);
+        }
+    }
+    		
+   	 
+     // 创建删除函数
+    function dianji(a){
+        var tr=a.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+    }
+  </script> 
+ </head> 
+ <body> 
+	   <table border="1" width="50%" id="table">
+	   <tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	   </tr>  
+
+	   <tr>
+		<td>xh001</td>
+		<td>王小明</td>
+		<td><a href="javascript:;" onclick="dianji(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>
+
+	   <tr>
+		<td>xh002</td>
+		<td>刘小芳</td>
+		<td><a href="javascript:;" onclick="dianji(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>  
+
+	   </table>
+	   <input type="button" value="添加一行"  onclick="zengjia()"/>   <!--在添加按钮上添加点击事件  -->
+ </body>
+</html>

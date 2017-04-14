@@ -1,0 +1,266 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?-innuhf");
+  src: url("fonts/icomoon.eot?#iefix-innuhf") format("embedded-opentype"), url("fonts/icomoon.ttf?-innuhf") format("truetype"), url("fonts/icomoon.woff?-innuhf") format("woff"), url("fonts/icomoon.svg?-innuhf#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="icon-"], [class*=" icon-"], .toolbar-btn {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-wechat:before, .toolbar-item-weixin .toolbar-btn:before {
+  content: "\e604"; }
+
+.icon-arrow-up:before, .toolbar-item-top .toolbar-btn:before {
+  content: "\e601"; }
+
+.icon-twitch:before, .toolbar-item-feedback .toolbar-btn:before {
+  content: "\e602"; }
+
+.icon-phone:before, .toolbar-item-app .toolbar-btn:before {
+  content: "\e603"; }
+
+/* $toolbar-size:52px;
+
+@mixin toolbar-item($pos,$hoverpos){
+	background-position:0 $pos;
+	&:hover{
+		background-position:0 $hoverpos;
+	}
+}
+
+.toolbar{
+	position:fixed;
+	left:50%;
+	bottom:5px;
+	margin-left: -$toolbar-size / 2;
+}
+.toolbar-item{
+	display: block;
+	width: $toolbar-size;
+	height: $toolbar-size;
+	background: url(../img/toolbar.png);
+	background-repeat: no-repeat;
+	margin-top: 1px;
+	position: relative;
+	transition:all 0.5s;
+
+	&:hover{
+		.toolbar-item-layer{
+			@include opacity(1);
+			transform:scale(1);
+		}
+	}
+}
+.toolbar-item-weixin{
+	@include toolbar-item(-798px,-860px);
+	.toolbar-item-layer{
+		height:212px;
+		background-position: 0 0;
+	}
+}
+.toolbar-item-feedback{
+	@include toolbar-item(-426px,-488px);
+}
+.toolbar-item-app{
+	@include toolbar-item(-550px,-612px);
+	.toolbar-item-layer{
+		height:194px;
+		background-position: 0 -222px;
+	}
+}
+.toolbar-item-top{
+	@include toolbar-item(-674px,-736px);
+}
+.toolbar-item-layer{
+	position: absolute;
+	right:$toolbar-size - 6;
+	bottom:-10px;
+	width:172px;
+	background-image: url("../img/toolbar.png");
+	background-repeat: no-repeat;
+	@include opacity(100);
+	transform-origin:95% 95%;
+	transform:scale(0.01);
+	transition:all 0.5s;
+} */
+/* $toolbar-size:52px;
+.toolbar{
+	position:fixed;
+	left:50%;
+	bottom:5px;
+	margin-left: -$toolbar-size / 2;
+}
+.toolbar-item{
+	position: relative;
+	display: block;
+	width:$toolbar-size;
+	height:$toolbar-size;
+	margin-top: 1px;
+
+	&:hover{
+		.toolbar-icon{
+			top:-$toolbar-size;
+		}
+		.toolbar-text{
+			top:0;
+		}
+		.toolbar-layer{
+			@include opacity(100);
+			transform:scale(1);
+		}
+	}
+}
+.toolbar-btn{
+	position: absolute;
+	left:0;
+	top:0;
+	width:$toolbar-size;
+	height:$toolbar-size;
+	overflow: hidden;
+}
+.toolbar-icon{
+	position: absolute;
+	left:0;
+	top:0;
+	width:$toolbar-size;
+	height:$toolbar-size;
+	background-color: #d0d6d9;
+	font-size:30px;
+	color:#fff;
+	text-align:center;
+	line-height: $toolbar-size;
+	transition:top 1s;
+}
+.toolbar-text{
+	position: absolute;
+	left:0;
+	top:$toolbar-size;
+	width:$toolbar-size;
+	height:$toolbar-size;
+	background-color: #98a1a6;
+	font-size:12px;
+	color:#fff;
+	text-align:center;
+	padding-top: 12px;
+	line-height: 1.2;
+	transition:top 1s;
+}
+.toolbar-layer{
+	position: absolute;
+	right:$toolbar-size - 6;
+	bottom:-10px;
+	width:172px;
+	background-image: url("../img/toolbar_img.png");
+	@include opacity(0);
+	transform-origin:95% 95%;
+	transform:scale(0.01);
+	transition:all 1s;
+
+}
+.toolbar-layer-weixin{
+	height:212px;
+	background-position:0 0;
+}
+.toolbar-layer-app{
+	height:194px;
+	background-position: 0 -222px;
+} */
+.toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 5px;
+  margin-left: -26px; }
+
+.toolbar-item {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin-top: 1px; }
+  .toolbar-item:hover .toolbar-btn:before {
+    top: -52px; }
+  .toolbar-item:hover .toolbar-btn:after {
+    top: 0; }
+  .toolbar-item:hover:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1); }
+  .toolbar-item:after {
+    content: "";
+    position: absolute;
+    right: 46px;
+    bottom: -10px;
+    width: 172px;
+    background-image: url("../img/toolbar_img.png");
+    background-repeat: no-repeat;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform-origin: 95% 95%;
+    transform: scale(0.01);
+    transition: all 1s; }
+
+.toolbar-item-weixin:after {
+  height: 212px;
+  content: "";
+  background-position: 0 0; }
+.toolbar-item-weixin .toolbar-btn:after {
+  content: "公众\A账号"; }
+
+.toolbar-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+  overflow: hidden; }
+  .toolbar-btn:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 52px;
+    height: 52px;
+    background-color: #d0d6d9;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 52px;
+    transition: top 1s; }
+  .toolbar-btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 52px;
+    width: 52px;
+    height: 52px;
+    background-color: #98a1a6;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 12px;
+    transition: top 1s;
+    white-space: pre; }
+
+.toolbar-item-feedback .toolbar-btn:after {
+  content: "意见\A反馈"; }
+
+.toolbar-item-app:after {
+  height: 194px;
+  content: "";
+  background-position: 0 -222px; }
+.toolbar-item-app .toolbar-btn:after {
+  content: "App\A下载"; }
+
+.toolbar-item-top .toolbar-btn:after {
+  content: "回到\A顶部"; }

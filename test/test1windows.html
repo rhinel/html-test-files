@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<p id="ab">1</p>
+	<p id="bc">2</p>
+	<p id="cd">3</p>
+<script type="text/javascript">
+function a(){
+document.getElementById("ab").innerHTML ='获取浏览器窗口可视区域大小client:<br />' +
+'document.documentElement 宽：' + document.documentElement.clientWidth + 
+' 高：' + document.documentElement.clientHeight + '<br />' +
+'document.body 宽：' + document.body.clientWidth + 
+' 高：' + document.body.clientHeight + '<br />' +
+'window.inner 宽：' + window.innerWidth + 
+' 高：' + window.innerHeight + '<br />';
+document.getElementById("bc").innerHTML ='获取网页内容高度和宽度(不包括滚动条)scroll:<br />' +
+'document.documentElement 宽：' + document.documentElement.scrollWidth +
+' 高：' + document.documentElement.scrollHeight + '<br />' +
+'document.body 宽：' + document.body.scrollWidth + 
+' 高：' + document.body.scrollHeight + '<br />' ;
+document.getElementById("cd").innerHTML ='获取网页内容高度和宽度offset<br/>(包括滚动条等边线，会随窗口的显示大小改变)offset:<br />' +
+'document.documentElement 宽：' + document.documentElement.offsetWidth +
+' 高：' + document.documentElement.offsetHeight + '<br />' +
+'document.body 宽：' + document.body.offsetWidth + 
+' 高：' + document.body.offsetHeight + '<br />' ;
+}
+window.onresize=function(){
+	a();
+}
+</script>
+</body>
+</html>

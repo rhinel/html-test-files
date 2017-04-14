@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* 代码整理：懒人之家 lanrenzhijia.com */
+	* {
+	margin: 0;
+	padding: 0;
+	font-size:12px;
+}
+body {
+	background-color: #2C1914;
+	font-family:"宋体";
+}
+a img, ul, li {
+	list-style: none;
+}
+a {
+	text-decoration:none;
+	outline:none;
+	font-size:12px;
+}
+input, textarea, select, button {
+	font-size: 100%;
+}
+.abs {
+	position:absolute;
+}
+.rel {
+	position:relative;
+}
+.wrap {
+	min-height:1000px;
+}
+.main {
+	height:718px;
+}
+.con980 {
+	width:980px;
+	margin:0 auto;
+}
+.header {
+	width:100%;
+	height:50px;
+}
+.play {
+	width:980px;
+	height:625px;
+	padding:22px 0 0 21px;
+}
+td {
+	width:187px;
+	height:115px;
+	font-family:"微软雅黑";
+	background-color:#666;
+	text-align:center;
+	line-height:115px;
+	font-size:80px;
+}
+.playcurr {
+	background-color:#F60;
+}
+.playnormal {
+	background-color:#666;
+}
+.play_btn {
+	width:480px;
+	height:115px;
+	display:block;
+	background-color:#F60;
+	border:0;
+	cursor:pointer;
+	font-family:"微软雅黑";
+	font-size:40px;
+}
+.play_btn:hover {
+	background-position:0 -115px;
+}
+.btn_arr {
+	left:255px;
+	top:255px;
+}

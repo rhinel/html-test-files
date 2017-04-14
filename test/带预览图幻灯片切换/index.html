@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>预览图幻灯片切换效果</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		padding: 50px 0;
+		background: #FFF;
+		font-size: 14px;
+		font-family: 'Avenir Next';
+		color: #555;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/*样式*/
+	.slider,
+	.slider .main,
+	.slider .main .main-i{
+		width: 100%;
+		height: 400px;
+		position: relative;
+	}
+	.slider .main{
+		overflow: hidden;
+	}
+	/*每一个幻灯片的样式*/
+	.slider .main .main-i{}
+	.slider .main .main-i img{
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		z-index: 1;
+	}
+	.slider .main .main-i .caption{
+		position: absolute;
+		right: 50%;
+		top:30%;
+		z-index: 9;
+		margin-right: 13%;
+	}
+	.slider .main .main-i .caption h2{
+		font-size: 40px;
+		line-height: 50px;
+		color: #b5b5b5;
+		text-align: right;
+		margin-right: 45px;
+		opacity: 0;
+	}
+	.slider .main .main-i .caption h3{
+		font-size: 70px;
+		line-height: 70px;
+		color: #000000;
+		text-align: right;
+		font-family: 'Open Sans Condensed';
+		margin-right: -45px;
+		opacity: 0;
+	}
+	/*每一个控制区域样式*/
+	.slider .ctrl{
+		width: 100%;
+		height: 13px;
+		text-align: center;
+		line-height: 13px;
+		position: absolute;
+		left: 0;
+		bottom: -13px;
+	}
+	.slider .ctrl .ctrl-i{
+		display: inline-block;
+		width: 150px;
+		height: 13px;
+		background:#666;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+		position: relative;
+		transition:all 0.8s;
+		margin-left: 1px;
+	}
+	.slider .ctrl .ctrl-i img{
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 50px;
+		z-index: 9;
+		opacity: 0;
+		transition:all 0.5s;
+	}
+	/*hover 控制按钮效果*/
+	.slider .ctrl .ctrl-i:hover{
+		background: #f0f0f0;
+	}
+	.slider .ctrl .ctrl-i:hover img{
+		bottom: 13px;
+		opacity: 1;
+		-webkit-box-reflect:below 0px -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(transparent),
+				color-stop(50%,transparent),
+				to(rgba(255,255,255,0.3))
+			);
+	}
+	/*当前展现状态*/
+	.slider .main .main-i{
+		position: absolute;
+		opacity: 0;
+		right: -50%;
+		transition:opacity 0.1s 0.5s,right 0.1s 0.5s;
+	}
+	.slider .main .main-i.margin-right{
+		right: 50%;
+	}
+	.slider .main .main-i.main-i-active,
+	.slider .main .main-i.margin-right.main-i-active{
+		opacity: 1;	
+		right:0;
+		z-index:2; 
+		transition:opacity 0.5s,right 0.5s;
+	}
+	.slider .main .main-i.main-i-active h2,
+	.slider .main .main-i.main-i-active h3{
+		margin-right: 0;
+		opacity: 1;
+		transition:all 0.5s 0.5s;
+	}
+	.slider .ctrl .ctrl-i.ctrl-i-active{
+		background: #000;
+	}
+	.slider .ctrl .ctrl-i.ctrl-i-active img{
+		opacity: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="slider"> <!--1.整个外部盒子!-->
+		<div class="main" id="template_main">
+			<div class="main-i {{css}}" id="main_{{index}}">
+				<div class="caption">
+					<h2>{{h2}}</h2>
+					<h3>{{h3}}</h3>
+				</div>
+				<img src="{{index}}.jpg" class="picture">
+			</div>
+		</div>
+		<div class="ctrl" id="template_ctrl">
+			<a class="ctrl-i" id="ctrl_{{index}}" href="javascript:switchSlider({{index}});">
+				<img src="{{index}}.jpg">
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+	var data=[
+		{img:1,h1:'Creative',h2:'DUET'},
+		{img:2,h1:'Friendly',h2:'DEVIL'},
+		{img:3,h1:'Tranquilent',h2:'COMPATRIOT'},
+		{img:4,h1:'Insecure',h2:'HUSSLER'},
+		{img:5,h1:'Loving',h2:'REBEL'},
+		{img:6,h1:'Passionsate',h2:'SEEKER'},
+		{img:7,h1:'Crazy',h2:'FRIEND'},
+	];
+	var g=function (id) {
+		if (id.substr(0,1)=='.') {
+			return document.getElementsByClassName(id.substr(1));
+		}
+		return document.getElementById(id);
+	};
+
+	//初始化幻灯片
+	function addSliders () {
+		var template_main=g('template_main').innerHTML
+			.replace(/^\s*/,'')
+			.replace(/\s*$/,'');
+		var template_ctrl=g('template_ctrl').innerHTML
+			.replace(/^\s*/,'')
+			.replace(/\s*$/,'');
+		var out_main='',
+			out_ctrl='';
+
+		for(var i in data){
+			out_main += template_main
+				.replace(/{{index}}/g,data[i].img)
+				.replace(/{{h2}}/g,data[i].h1)
+				.replace(/{{h3}}/g,data[i].h2)
+				.replace(/{{css}}/g,['','margin-right'][i%2]);
+			out_ctrl += template_ctrl
+				.replace(/{{index}}/g,data[i].img);
+		}
+
+		g('template_main').innerHTML=out_main;
+		g('template_ctrl').innerHTML=out_ctrl;
+	}
+
+	//调整图片函数
+	function movepic () {
+		var picture=g('.picture');
+		for (var j = 0; j < picture.length; j++) {
+			picture[j].style.marginTop=picture[j].clientHeight/2*(-1)+'px';
+		}
+		var minpic=g('.ctrl-i');
+		for (var i = 0; i < minpic.length; i++) {
+			minpic[i].style.width=Math.min(150,(g('.ctrl')[0].clientWidth-minpic.length)/minpic.length)+'px';
+		}
+	}
+
+	//切换函数
+	function switchSlider (n) {
+		var _main_i=g('.main-i'),
+			_ctrl_i=g('.ctrl-i');
+		for (var i = 0; i < _main_i.length; i++) {
+			_main_i[i].className=_main_i[i].className.replace(/ main-i-active/g,'');
+			_ctrl_i[i].className=_ctrl_i[i].className.replace(/ ctrl-i-active/g,'');
+		}
+		g('main_'+n).className+=' main-i-active';
+		g('ctrl_'+n).className+=' ctrl-i-active';
+	}
+
+	window.onload=function(){
+		addSliders();
+		switchSlider(1);
+		setTimeout('movepic()',1000);
+	};
+	window.onresize=function(){
+		movepic();
+	};
+	</script>
+</body>
+</html>

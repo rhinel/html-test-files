@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+		<title>3D正方体</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="icon" href="http://senola.github.io/favicon.png">
+		<!-- External css-->
+		<style>
+h1,h2,h3,h4,h5,h6,p,figure,form{
+    margin:0;
+}
+.window {
+    -webkit-perspective: 800px;
+	        perspective: 800px;
+	-webkit-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+	overflow: hidden;
+}
+.cube {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin:10% auto;
+	padding: 50px;
+	-webkit-animation: cubeRotate 5s linear 0s infinite;
+			animation: cubeRotate 5s linear 0s infinite;
+	
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+
+	-webkit-transition:all 1s ease;
+		 	transition:all 1s ease;
+
+	-webkit-transform-origin:60%;
+            transform-origin:60%;
+}
+.surface {
+	position: absolute;
+	display: block;
+	width: 300px;
+	height: 300px;
+	line-height: 300px;
+	font-size: 200px;
+	background-color: #5194A5;
+	color: #fff;
+}
+.surface-1 {
+   background-color:  rgba(179, 114, 42, 0.5);
+     -webkit-transform:translate3d(0,0,150px);
+             transform:translate3d(0,0,150px);
+}
+.surface-2 {
+   background-color: rgba(78, 142, 165, 0.5);
+	 -webkit-transform-origin: 0 50%;
+	         transform-origin: 0 50%;
+   -webkit-transform:translate3d(0,50%,0) rotateX(-90deg);
+		   transform:translate3d(0,50%,0) rotateX(-90deg);
+}
+.surface-3 {
+   background-color: rgba(65, 187, 99, 0.5);
+   -webkit-transform-origin: 50% 50%;
+           transform-origin: 50% 50%;
+   -webkit-transform:translate3d(0,0,-150px) rotateX(-180deg);
+           transform:translate3d(0,0,-150px) rotateX(-180deg);
+}
+.surface-4 {
+   -webkit-transform-origin: 50% 50%;
+           transform-origin: 50% 50%;
+   -webkit-transform:translate3d(0,-50%,0) rotateX(90deg);
+           transform:translate3d(0,-50%,0) rotateX(90deg);
+   background-color: rgba(124, 72, 40, 0.5);
+}
+.surface-5 {
+   -webkit-transform-origin: 50% 50%;
+           transform-origin: 50% 50%;
+   -webkit-transform:translate3d(-50%,0,0) rotateY(90deg);
+           transform:translate3d(-50%,0,0) rotateY(90deg);
+   background-color: rgba(213, 86, 202, 0.5);
+}
+.surface-6 {
+   -webkit-transform-origin: 50% 50%;
+           transform-origin: 50% 50%;
+   -webkit-transform:translate3d(50%,0,0) rotateY(-90deg);
+           transform:translate3d(50%,0,0) rotateY(-90deg);
+   background-color: rgba(187, 185, 35, 0.5);
+}
+
+@-webkit-keyframes cubeRotate{
+    0%{
+        -webkit-transform:rotateX(0deg) rotateY(0deg);
+                transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        -webkit-transform:rotateX(360deg) rotateY(360deg);
+                transform:rotateX(360deg) rotateY(360deg);
+    }
+}
+.pic-1 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background1.jpg");
+  background-size: cover;
+}
+.pic-2 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background2.jpg");
+  background-size: cover;
+}
+.pic-3 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background3.jpg");
+  background-size: cover;
+}
+.pic-4 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background4.jpg");
+  background-size: cover;
+}
+.pic-5 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background5.jpg");
+  background-size: cover;
+}
+.pic-6 {
+	background-image: url("https://raw.githubusercontent.com/senola/pictures/master/background/background6.jpg");
+  background-size: cover;
+}
+		</style>
+	</head>
+	<body>
+    <div class="window">
+    	 <div class="cube">
+    	 	  <a href="javascript:;" class="surface surface-1" id="surface-1">1</a>
+    	 	  <a href="javascript:;" class="surface surface-2" id="surface-2">2</a>
+    	 	  <a href="javascript:;" class="surface surface-3" id="surface-3">3</a>
+    	 	  <a href="javascript:;" class="surface surface-4" id="surface-4">4</a>
+              <a href="javascript:;" class="surface surface-5" id="surface-5">5</a>
+    	 	  <a href="javascript:;" class="surface surface-6" id="surface-6">6</a>
+    	 </div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#wrap{
+				height:200px;
+				width:500px;
+				margin:20px auto;
+				background: #FFF;
+				text-align: center;
+				line-height: 200px;
+				font-family: "微软雅黑";
+				position: relative;
+			}
+			.effect{
+				box-shadow: 0px 1px 4px rgba(0,0,0,0.3),0px 0px 40px rgba(0,0,0,0.1) inset;
+			}
+			.effect::before,.effect::after{
+				content: "";
+				background: black;
+				position: absolute;
+				z-index: -100;
+				top:50%;
+				bottom: 1px;
+				left:10px;
+				right:10px;
+				box-shadow: 0 0 15px rgba(0,0,0,0.8);
+				border-radius: 100px/10px;
+			}
+			.box{
+				width:500px;
+				clear: both;
+				
+				margin: 0 auto;
+
+			}
+			.box li{
+				position: relative;
+				width: 150px;
+				float: left;
+				height:200px;
+				margin: 5px;
+				display: block;
+				background: #fff;
+				list-style-type: none;
+				box-shadow: 0px 1px 4px rgba(0,0,0,0.3),0px 0px 60px rgba(0,0,0,0.1) inset;
+			}
+			.box li::before,.box li::after{
+				content: "";
+				background: black;
+				position: absolute;
+				width: 85%;
+				height: 80%;
+				left:11px;
+				bottom: 9px;
+				box-shadow: 0 8px 15px rgba(0,0,0,0.8);
+				z-index: -100;
+			}
+			.box li::before{
+				-webkit-transform: skewX(-13deg) rotate(-6deg);
+			}
+			.box li::after{
+				-webkit-transform: skewX(13deg) rotate(6deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div id="wrap" class="effect">
+		<h1>你怎么连话都说不清楚</h1>
+	</div>
+	<div>
+		<ul class="box">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	</body>
+</html>

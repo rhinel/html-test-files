@@ -1,0 +1,378 @@
+/*公用*/
+.comwidth{
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.leftArea{
+	float: left;
+}
+.rightArea{
+	float: right;
+}
+
+/*top-bar,header-bar-top*/
+.header-bar-top{
+	height: 31px;
+	background-color: #f7f7f7;
+	line-height: 31px;
+	border-bottom: 1px solid #EEEEEE;
+}
+.header-bar-top .collection{
+	background: url(../img/header-star.jpg) left center no-repeat;
+	padding-left: 17px;
+	font-weight: bold;
+}
+.header-bar-top a:hover{
+	color: red;
+}
+.header-bar-top .login{
+	margin-right: 21px;
+}
+
+/*header-bar-middle,logoBar*/
+.header-bar-middle{
+	height: 85px;
+	background-color: #1D7AD9;
+}
+.header-bar-middle-logo{
+	padding-left: 39px;
+	padding-top: 13px;
+}
+.header-bar-middle-seach-box{
+	width: 429px;
+	height: 35px;
+	margin: 23px 0px 27px 185px;
+}
+.header-bar-middle-seach-box .seach-text{
+	background: #FFFFFF;
+	width: 360px;
+	height: 35px;
+	text-indent: 10px;
+}
+.header-bar-middle-seach-box .seach-btn{
+	background: #FF8C00;
+	width: 69px;
+	height: 35px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+}
+.header-bar-middle-shop-car{
+	height:35px;
+	width: 145px;
+	margin: 23px 59px 27px 0px;
+	background-color: #FF8800;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+}
+.header-bar-middle-shop-car .shop-car-text{
+	width:72px;
+	line-height: 14px;
+	font-family: "微软雅黑";
+	background: url(../img/header-car.jpg) left top no-repeat;
+	display: inline-block;
+	height: 14px;
+	margin: 7px 6px 8px 10px;
+	padding:4px 0px 2px 0px;
+	text-indent: 30px;
+	position: relative;
+}
+.header-bar-middle-shop-car .shop-car-text:after{
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 35px;
+	background-color: #E27A00;
+	position: absolute;
+	right: -7px;
+	top:-7px;
+}
+.header-bar-middle-shop-car .shop-car-num{
+	width: 27px;
+	height: 14px;
+	background: url(../img/header-sanjiao.jpg) right 1px no-repeat;
+	display: inline-block;
+	margin: 11px 11px 10px 0px;
+	text-align: right;
+	padding-right:18px;
+	position: relative;
+}
+.header-bar-middle-shop-car .shop-car-num:before{
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 35px;
+	background-color: #FF9C01;
+	position: absolute;
+	left: 0px;
+	top:-11px;
+}
+
+/*header-bar-bottom,导航*/
+.header-bar-bottom{
+	height: 35px;
+	background: #1369C0;
+}
+.header-bar-bottom .header-bar-bottom-shop-class{
+	width: 189px;
+	height: 35px;
+}
+.header-bar-bottom .header-bar-bottom-shop-class h3{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	color: #fff;
+	margin: 9px 30px 11px 39px;
+	line-height: 15px;
+	background: url(../img/header-sanjiao2.jpg) right 5px no-repeat;
+	cursor: pointer;
+}
+.header-bar-bottom .header-bar-bottom-nav li{
+	float: left;
+	display: inline-block;
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	width: 95px;
+	text-align: center;
+	padding: 10px 0px 11px 0px;
+}
+.header-bar-bottom .header-bar-bottom-nav li:hover,
+.header-bar-bottom .header-bar-bottom-nav .active{
+	background: #4593FD;
+}
+.header-bar-bottom .header-bar-bottom-nav li a{
+	color: #fff;
+}
+
+/*header-bar-bottom,列表*/
+.header-bar-bottom .item-class-show{
+	background-color: #4593FD;
+	padding-top: 2px;
+	padding-bottom: 9px;
+	border-bottom: 1px solid #3487F2;
+}
+.header-bar-bottom .item-class-show .item-class-kind{
+	position: relative;
+}
+.header-bar-bottom .item-class-show .item-class-kind:not(:last-child){
+	margin-bottom: 1px;
+	border-bottom: 1px solid #3487F2;
+}
+.header-bar-bottom .item-class-show .item-class-kind:not(:last-child):after{
+	content: "";
+	width: 189px;
+	height: 1px;
+	background: #5AA1FE;
+	position: absolute;
+	bottom: -2px;
+}
+.header-bar-bottom .item-class-show .item-class-kind dt{
+	padding: 12px 13px 5px 11px;
+	position: relative;
+}
+.header-bar-bottom .item-class-show .item-class-kind dt a{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #fff;
+	line-height: 18px;
+	margin-right: 4px;
+}
+.header-bar-bottom .item-class-show .item-class-kind dt .item-focus{
+	font-size: 11px;
+	line-height: 14px;
+	width: 46px;
+	text-align: center;	
+	text-decoration: underline;
+	position: absolute;
+	margin: 1px 45px 0px 6px;
+	padding-bottom: 2px;
+	border:1px solid #A5CBFE;
+	border-radius: 8px;
+	background: #106AC0;
+}
+.header-bar-bottom .item-class-show .item-class-kind:not(.active) dt:after{
+	content: "";
+	display: inline-block;
+	background: url(../img/header-sanjiao3.jpg) left center no-repeat;
+	width: 4px;
+	height: 8px;
+	position: absolute;
+	right: 13px;
+	top:50%;
+	margin-top: 1px;
+}
+.header-bar-bottom .item-class-show .item-class-kind dd{
+	padding: 0px 0px 12px 11px;
+	position: relative;
+}
+.header-bar-bottom .item-class-show .item-class-kind dd a{
+	font-size: 12px;
+	color: #C1D8F7;
+	line-height: 12px;
+	margin-right: 6px;
+}
+.header-bar-bottom .item-class-show .item-class-kind.active:before{
+	content: "";
+	position: absolute;
+	width: 188px;
+	height: 59px;
+	top:1px;
+	left:1px;
+	background: #fff;
+}
+.header-bar-bottom .item-class-show .item-class-kind.active dt a:not(.item-focus),
+.header-bar-bottom .item-class-show .item-class-kind.active dd a{
+	color: #000000;
+	z-index: 99;
+}
+
+/*header-bar-bottom,列表*/
+.body-bar-class{
+	height: 325px;
+}
+.body-bar-class .body-bar-class-ad{
+	width: 240px;
+	height: 325px;
+}
+.body-bar-class .body-bar-class-list{
+	width: 569px;
+	height: 379px;
+	border: 1px solid #DDDDDD;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top{
+	width: 530px;
+	height: 324px;
+	padding-left:19px;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dl{
+	border-bottom: 1px solid #E5E5E5;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dt,
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dd{
+	padding:11px 0 7px 0;
+	font-size: 12px;
+	line-height: 24px;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dd{
+	width: 454px;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dt a{
+	padding-right: 15px;
+	color: #4B88DA;
+	font-weight: bold;
+	height: 24px;
+}
+.body-bar-class .body-bar-class-list .body-bar-class-list-top dd a{
+	padding-right: 13px;
+}
+/*body-bar-middle*/
+.body-bar-middle-top{
+	height: 75px;
+	background: url(../img/body-middle1.jpg) left center no-repeat;
+	position: relative;
+}
+.body-bar-middle-top h3{
+	font-size: 24px;
+	line-height: 23px;
+	font-family: "微软雅黑";
+	padding: 26px 57px;
+}
+.body-bar-middle-top span{
+	position: absolute;
+	bottom: 15px;
+	right: 23px;
+}
+.body-bar-middle-top-cont-ad{
+	width: 190px;
+	height: 400px;
+}
+.body-bar-middle-top-cont-item{
+	border-top:1px solid #CCCCCC;
+	border-bottom: 3px solid #FF7201;
+}
+.body-bar-middle-top-cont-item-big{
+	border-bottom: 1px solid #CCCCCC;
+}
+.body-bar-middle-top-cont-item-big,
+.body-bar-middle-top-cont-item-smail{
+	border-right: 1px solid #CCCCCC;
+	padding-right: 10px;
+}
+.body-bar-middle-top-cont-item-biger:not(:last-child){
+	border-right: 1px solid #e5e5e5;
+}
+.body-bar-middle-top-cont-item-biger{
+	width: 199px;
+	float: left;
+}
+.body-bar-middle-top-cont-item-biger img{
+	padding-top: 45px;
+}
+.body-bar-middle-top-cont-item-biger h4{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	line-height: 17px;
+	font-weight: bold;
+	padding: 21px 0 0 19px;
+}
+.body-bar-middle-top-cont-item-biger span{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	line-height: 13px;
+	padding: 8px 0 21px 58px;
+	display: inline-block;
+	color: #FF963F;
+}
+.body-bar-middle-top-cont-item-smailer{
+	width: 199px;
+	float: left;
+}
+.body-bar-middle-top-cont-item-smailer:not(:last-child){
+	border-right: 1px solid #e5e5e5;
+}
+.body-bar-middle-top-cont-item-smailer img{
+	float: left;
+}
+.body-bar-middle-top-cont-item-smailer h4{
+	line-height: 18px;
+	font-size: 12px;
+	color: #FF7300;
+	font-family: "新宋体";
+	padding-top: 29px;
+}
+.body-bar-middle-top-cont-item-smailer i{
+	font-style: normal;
+	font-size: 9px;
+	line-height: 9px;
+}
+.body-bar-middle-top-cont-item-smailer span{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+/*footer-bar*/
+.footer-bar{
+	height: 223px;
+	background: #D4D4D4;
+	margin-top: 40px;
+	text-align: center;
+}
+.footer-bar-aboutme{
+	padding-top: 56px;
+}
+.footer-bar-aboutme a{
+
+	color: #000;
+	line-height: 12px;
+}
+.footer-bar-aboutme span{
+	line-height: 36px;
+}
+.footer-bar-aboutme img{
+	margin: 24px 12px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8" />
+		<title>页面切换</title>
+		<style type="text/css">
+			h1,body,html{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				height: 100%;
+			}
+			#container,.section{
+				height: 100%;
+			}
+			#section0{
+				background: #00ACED;
+			}
+			#section1{
+				background: #F44283;
+			}
+			#section2{
+				background: #BE3948;
+			}
+			#section3{
+				background: #FF6600;
+			}
+			.left{
+				float: left;
+			}
+			#container{
+				width: 400%;
+				overflow: hidden;
+			}
+			.section{
+				width: 25%;
+			}
+		</style>
+		<script type="text/javascript" src="Chats/Jscript/jquery-1.4.2.js" ></script>
+		<script>
+			(function($){
+				var defaults={
+					'container' : '#conainer',//容器
+					'sections' : '.section',//子容器
+					'easing' :'ease',//特效方式，ease-in,ease-out,linear
+					'duration' : 1000,//每次动画执行时间
+					'pagination' : true,//是否显示分页
+					'loop' : false,//是否循环
+					'keyboard' : true,//是否支持键盘
+					'direction' :vertical,//滑动方向 horizontal,vertical
+					'onpageSwith' : function(pagenum){}
+				};
+				var win = $(window),
+			})(jQuery);
+		</script>
+	</head>
+	<body>
+		<div id="container" class="left">
+			<div class="section left" id="section0"></div>
+			<div class="section left" id="section1"></div>
+			<div class="section left" id="section2"></div>
+			<div class="section left" id="section3"></div>
+		</div>
+	</body>
+</html>

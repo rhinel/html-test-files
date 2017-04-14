@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <script src="http://www.imooc.com/data/jquery-1.8.2.min.js" type="text/javascript"></script>
+<style type="text/css">
+    *{padding:0; margin:0}
+	#main{
+		width:600px;
+		border:#000 solid 3px;
+		margin:50px auto;
+		padding:50px 10px;
+	}
+	#contentList{
+		width:500px;
+		height:300px;
+		margin:0 auto;
+		border:#ccc solid 1px;
+		overflow-y:scroll;
+	}
+	.info{
+		margin:5px 10px;
+		line-height:1.5em;
+	}
+	#sendMain{
+		width:500px;
+		margin-top:50px;
+		
+		margin:0 auto;
+		padding:30px 0px;
+	}
+	#sendCon{
+		float:left;
+	}
+	#name{
+		display:inline;
+	}
+	#nameIn{
+		width:100px;
+		margin-left:50px;
+	}
+	#sendBu{
+		padding:5px 10px;
+		display:inline;
+		margin-left:50px;
+		margin-top:20px;
+	}
+</style>
+</head>
+
+<body>
+    <div id="main">
+    	<div id="contentList">
+        	
+        </div>
+        <div id="sendMain">
+        	<form action="#">
+            	 <div id="sendCon">
+                	<textarea id="sendTxt"  cols="40" rows="5" >请输入要发送的内容！</textarea>
+                </div>
+        		<div id="name">
+                	<input id="nameIn" type="text" value="请输入您的昵称" />
+                </div>
+                <input id="sendBu" type="button" value="发送"/>
+         	</form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#sendTxt").bind("focus", function(){
+			$(this).html('');
+		});
+
+		$("#sendBu").bind("click", function(){
+			var $name = $("#nameIn");
+			var $sendTxt = $("#sendTxt");
+			var $time = new Date()
+			var y = $time.getFullYear();
+			var m = $time.getMonth()+1;
+			var d = $time.getDate();
+			var h = $time.getHours();
+			var mi = $time.getMinutes();
+			var $timestr = y + "." + m + "." + d + "&nbsp;" + h + ":" + mi ;
+			if($name.val() != "" && $sendTxt.val() != ""){
+				var $html = "<div class='info'><span>" + $name.val() + "&nbsp;" + $timestr + "&nbsp;说：&nbsp;&nbsp;" + "</span><span>" + $sendTxt.val() + "</span></div>";
+				$("#contentList").append($html);
+				$("#sendTxt").val('');
+			}else if($name.val() == ""){
+				alert("昵称为空，请输入昵称！");
+				$($name).focus();
+			}else if($sendTxt.val() == ""){
+				alert("发送内容为空，请输入内容！");
+				$($sendTxt).focus();
+			}
+				
+		});
+	});
+</script>

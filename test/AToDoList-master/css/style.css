@@ -1,0 +1,352 @@
+body,div,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,p,input,select,textarea,span,form,a{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    font:14px/1.7 "Microsoft YaHei" sans-serif;
+    color: #333;
+}
+img{border:none;}
+ul,ol{list-style:none;}
+input,select,textarea{outline:none;border:none;background:none;}
+textarea{resize:none;}
+a{text-decoration:none;}
+
+#wrap {
+    margin: 15px;
+    min-width: 800px;
+
+}
+#head {
+    background-color: #ddd;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    position: relative;
+}
+#body {
+    position: relative;
+    min-height: 500px;
+    /*border: 1px solid #000;*/
+}
+h1 {
+    font-weight: normal;
+    font-size: 24px;
+    color:#333;
+    text-align: right;s
+}
+#new {
+    position: absolute;
+    /*height: 27px;*/
+    width: 199px;
+    font-size: 14px;
+    overflow: hidden;
+    margin-top: 12px;
+    z-index: 100;
+    background-color: #ddd;
+}
+#new:hover {
+    background-color: #eee;
+    outline: 1px solid blue;
+    /*border-left: none;*/
+}
+#newFolder,
+#newItem,
+#newTask {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    background: url(../img/sprite2.png) no-repeat 7px -130px;
+}
+#newFolder,
+#newItem {
+    display: none;
+}
+#new:hover #newFolder,
+#new:hover #newItem {
+    display: block;    
+    /*border-bottom: 1px solid #ccc;*/
+}
+#new:hover #newTask,
+#new:hover #newItem {
+    border-bottom: 1px solid #ccc;
+}
+#newTask:hover,
+#newItem:hover,
+#newFolder:hover {
+    background-color: #ADD8E6;
+}
+
+#allClassifyList {
+    padding-top: 10px;
+    float: left;
+    min-height: 500px;
+    /*padding: 10px 15px;*/
+    background-color: #eee;
+    /*resize:horizontal;*/
+    width: 200px;
+    max-width: 250px;
+    border: 1px solid #ccc;
+}
+#allTask {
+    padding:10px;
+}
+#classifyList {
+    padding-left:10px;
+}
+/*#classifyList dl {
+    margin-top: 5px;
+}*/
+#taskListBox {
+    float: left;
+    min-height: 500px;
+    /*padding: 10px 15px;*/
+    background-color: #eee;
+    resize:horizontal;
+    width: 198px;
+    max-width: 250px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.taskListBox div {
+    display: block;
+    width: 66px;
+    height: 31px;
+    float: left;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+.taskListBox div:first-child {
+    border-left: none;
+}
+#contentBox {
+    /*float: left;*/
+    min-height: 500px;
+    /*padding: 10px 15px;*/
+    background-color: #eee;
+    margin-left: 398px;
+    /*width: 100%;*/
+    border: 1px solid #ccc;
+    min-width: 400px;
+}
+
+.taskDate {
+    position: absolute;
+    left: 200px;
+    top:32px;
+    display: none;
+}
+.taskDate>dt {
+    padding: 5px 5px 5px 10px;
+    /*background-color: #ADD8E6;*/
+    background-color: #ddd;
+    width: 183px;
+}
+.taskDate dd>h3 {
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 30px;
+}
+.taskDate .task {
+    display: none;
+    position: absolute;
+    left: 198px;
+    top:-32px;
+    width: 400px;
+    min-width: 400px;
+}
+.taskDate .todoItem:hover {
+    background-color: #ddd;
+}
+.taskDate .task h3 {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+
+}
+.taskDate .task .doneBtn {
+    display: block;
+    width: 14px;
+    height: 14px;
+    float: right;
+    margin-top:15px;
+    margin-right: 20px;
+    /*border: 1px solid #000;*/
+    background: url(../img/sprite2.png) no-repeat 0 2px;
+    z-index: 10;
+    top:5px;
+}
+.taskDate .task .edit {
+    display: block;
+    width: 14px;
+    height: 14px;
+    float: right;
+    /*border: 1px solid #000;*/
+    margin-top: 15px;
+    margin-right: 20px;
+    background: url(../img/sprite2.png) no-repeat 0 -23px;
+    z-index: 10;
+
+}
+.taskDate .task .doneBtn:hover,
+.taskDate .task .edit:hover {
+    outline: 1px solid #ccc;
+}
+.taskDate .task h4 {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    /*background-color: #ddd;*/
+    font-weight: normal;
+}
+.taskDate .task p {
+    padding: 10px;
+}
+.taskFolder {
+    font-weight: bold;
+    padding-left: 20px;
+    background: url(../img/sprite2.png) no-repeat 0 -64px;
+}
+.taskFolder+.taskFolderContent {
+    display: none;
+}
+#classifyList .folderOpen {
+    background: url(../img/sprite2.png) no-repeat 0 -88px;
+    /*background-color: #ddd;*/
+}
+#classifyList .folderOpen+.taskFolderContent {
+    display: block;
+}
+.activeFolder {
+    outline: 1px solid blue;
+}
+.taskFolder .close {
+
+    position: relative;
+    display: none;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    float: right;
+    top: 5px;
+    right: 5px;
+    background: url(../img/sprite2.png) no-repeat 0 -115px;
+}
+#classifyList .folderOpen:hover,
+.taskFolder:hover {
+    background-color: #ddd;
+}
+/*.taskFolder:hover .close {
+    display: block;
+}*/
+.taskItem {
+    padding-left: 40px;
+    background: url(../img/sprite2.png) no-repeat -22px -42px;
+    /*background-position: 20px 0;*/
+    /*position: relative;*/
+}
+.taskItem .close {
+    position: relative;
+    display: none;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    float: right;
+    top: 5px;
+    right: 5px;
+    background: url(../img/sprite2.png) no-repeat 0 -115px;
+}
+.taskItem:hover {
+    background-color: #ADD8E6;
+}
+/*.taskItem:hover .close {
+    display: block;
+}*/
+.taskFolderContent {
+    display: none;
+}
+.group:hover,
+.active {
+    background-color: #ddd;
+}
+h3.done {
+    background: url(../img/sprite2.png) no-repeat 6px 5px;
+}
+.selectedTaskItem {
+    /*outline: 1px solid blue;*/
+    /*color:blue;*/
+    background-color: #ADD8E6;
+}
+#editWindow {
+    border: 1px solid #ccc;
+    /*padding: 10px;*/
+    width: 500px;
+    height: 400px;
+    left: 198px;
+    position: absolute;
+    top:-32px;
+    /*position: relative;*/
+}
+#editWindow input,
+#editWindow textarea {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    font: 14px/1.7 "Microsoft YaHei" sans-serif;
+    color:#333;
+    background-color: #eee;
+}
+input:focus {
+    outline: 1px solid blue;
+}
+/*#editWindow input:focus,
+#editWindow textarea:focus {
+    outline: 2px solid blue;
+}*/
+#editWindow input.submitBtn,
+#editWindow input.cancelBtn {
+    width: 100px;
+    font-weight: bold;
+    border-left: 1px solid #ccc;
+    position: absolute;
+    right: 0;
+}
+#editWindow input.submitBtn:hover,
+#editWindow input.cancelBtn:hover {
+    background-color: #ddd;
+}
+#editWindow input.submitBtn {
+    height: 48px;
+    top: 0;
+}
+#editWindow input.cancelBtn {
+    height: 45px;
+    top: 48px;
+}
+#editWindow .taskHead:focus,
+#editWindow .taskDeadline:focus,
+#editWindow .taskContent:focus {
+    outline: 2px solid blue;
+}
+#editWindow input.submitBtn:focus,
+#editWindow input.cancelBtn:focus {
+    border: 2px solid blue;
+}
+#editWindow .taskHead {
+    font-size: 16px;
+    height: 48px;
+    font-weight: bold;
+}
+#editWindow .taskDeadline {
+    height: 45px;
+    font-size: 16px;
+}
+#editWindow .taskContent {
+    height: 306px;
+}

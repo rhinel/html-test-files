@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正方体</title>
+    <meta charset="UTF-8" />
+    <style>
+    	html, body, div, span,
+        h1, h2, h3, h4, h5, h6, p
+        a, img, ol, ul, li
+        {
+            margin:0;padding:0;border:0;outline:0;
+        }
+        #trans{
+	        -webkit-perspective: 600; 
+			-webkit-perspective-origin: 50% 50%;
+        }
+        #box{
+            -webkit-transform-style: preserve-3d;
+            margin:100px auto;
+            width:200px;
+            height:200px;
+            -webkit-transform-origin:50% 50%;
+            transition:all 1s ease;
+/*            -webkit-animation: cubeRotate 5s linear 0s infinite;*/
+        }
+        #box div{
+            width:200px;
+            height:200px;
+            background-color:rgba(29,122,217,0.2);
+            color:white;
+            font-size:200px;
+            text-height:200px;
+            text-align:center;
+            position: absolute;
+            }
+            
+        .f{
+        	-webkit-transform:translateZ(100px);
+        }
+        .l{
+            -webkit-transform:rotateY(90deg) translateZ(100px);
+        }
+        .r{
+            -webkit-transform:rotateY(270deg) translateZ(100px);
+        }
+        .u{
+            -webkit-transform:rotateX(270deg) translateZ(-100px);
+        }
+        .d{
+            -webkit-transform:rotateX(90deg) translateZ(-100px);
+        }
+        .b{
+            -webkit-transform:translateZ(-100px);
+        }
+        .select input{
+            width:500px;
+        }
+        .select{
+        	width:500px;
+        	margin: 0 auto;
+        }
+        @-webkit-keyframes cubeRotate{
+    0%{
+        -webkit-transform:rotateX(0deg) rotateY(0deg);
+                transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        -webkit-transform:rotateX(360deg) rotateY(360deg);
+                transform:rotateX(360deg) rotateY(360deg);
+    }
+    </style>
+    <script  type="text/javascript">
+    function rotate() {
+    var x=document.getElementById("rotatex").value;
+    var y=document.getElementById("rotatey").value;
+    var z=document.getElementById("rotatez").value;
+	document.getElementById("box").style.webkitTransform="rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)";
+    document.getElementById("degx-span").innerText=x;
+    document.getElementById("degy-span").innerText=y;
+    document.getElementById("degz-span").innerText=z;
+    }
+    
+//			//独立完成部分
+//			var s_1 = document.getElementById("surface-1");
+//			var s_2 = document.getElementById("surface-2");
+//			var s_3 = document.getElementById("surface-3");
+//			var s_4 = document.getElementById("surface-4");
+//			var s_5 = document.getElementById("surface-5");
+//			var s_6 = document.getElementById("surface-6");
+//			var arr = {
+//			    					1: s_1,
+//									2: s_2,
+//									3: s_3,
+//									4: s_4,
+//									5: s_5,
+//									6: s_6
+//								};
+//			function changeStyle(){
+//				setTimeout(function(){
+//					var i = getRandomNum(1, 6);
+//					var obj = arr[i];
+//					console.log("==========:" + i + ",------->:" + arr[i].flag)
+//					if(arr[i].flag) {
+//						 var j = getRandomNum(1, 6);
+//						 obj.className = "surface " + "surface-" + i +  " pic-" + j;
+//						 arr[i].flag = true
+//					}else{
+//			       arr[i].flag = true;
+//					} 
+//			    changeStyle();
+//				},200);
+//			}
+//			// 随机数
+//			function getRandomNum(under, over){
+//				switch ( arguments.length ){
+//					case 1: 
+//					    return parseInt(Math.random()*under+1);
+//					case 2: 
+//					    return parseInt(Math.random()*(over-under+1) + under);
+//					default: return 1;
+//				}
+//			}
+//			
+//			setTimeout(changeStyle,6000);
+    
+    </script>
+</head>
+<body>
+    <div id="trans">
+        <div id="box">
+            <div class="f">F</div>
+            <div class="l">L</div>
+            <div class="r">R</div>
+            <div class="u">U</div>
+            <div class="d">D</div>
+            <div class="b">B</div>
+        </div>
+    </div>
+    <div class="select">
+        <p>rotate x: <span id="degx-span">0</span> deg</p>
+        <input type="range" min="-360" max="360" id="rotatex" value="0" class="range-control" onchange="rotate()" /><br/>
+        <p>rotate y: <span id="degy-span">0</span> deg</p>
+        <input type="range" min="-360" max="360" id="rotatey" value="0" class="range-control" onchange="rotate()" /><br/>
+        <p>rotate z: <span id="degz-span">0</span> deg</p>
+        <input type="range" min="-360" max="360" id="rotatez" value="0" class="range-control" onchange="rotate()" /><br/>
+    </div>
+</body>
+</html>

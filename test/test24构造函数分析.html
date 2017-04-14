@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			function Person(name)   
+			{   
+			   this.name=name;   
+			   this.showMe=function()     //给函数添加属性:方法
+			        {   
+			           alert(this.name);   
+			        }   
+			};   
+			  
+			Person.prototype.from=function()   
+			{   
+			  alert('I come from prototype.');     //给函数的原形属性:原形对象添加属性:方法
+			}   
+			var father=new Person('js');//为了下面演示使用showMe方法，采用了js参数,实际多采用无参数   
+			//此时的father具有一个,father.name,具有一个father.showMe,具有一个father.from,还有一个father.constructor
+			//father为Person.prototype的值，也就是Person的原形对象
+			
+			alert(father.constructor);//查看构造函数,结果是:function Person(name) {...};   
+			function SubPer()   
+			{   
+			}   
+			
+			SubPer.prototype=father;//注意这里   
+			//此时的SubPer.prototype也具有father的属性，此时的prototype属性的值不再是subPer的原形对象，而是father对象
+			
+			SubPer.prototype.constructor=SubPer;   
+			//修改father.constructor的值从Person()改为SubPer()
+			//也就是Person.prototype.constructor变成SubPer()
+			  
+			var son=new SubPer();   
+			//此时的son为SubPer.prototype的值，也就是father
+			
+			
+			son.showMe();//js   
+			son.from();//I come from prototype.   
+			alert(father.constructor);//function SubPer(){...}   
+			alert(son.constructor);//function SubPer(){...}   
+			alert(SubPer.prototype.constructor);//function SubPer(){...}  
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>判断鼠标进入方向</title>
+<style>
+html,body{margin:0;padding:0;}
+.block1{
+	position: relative;
+	overflow: hidden;
+	margin:20px;
+	width:400px;height:200px;
+	float: left;
+}
+.class0{
+	-webkit-animation: class0 0.2s ease forwards;
+}
+.class1{
+	-webkit-animation: class1 0.2s ease forwards;
+}
+.class2{
+	-webkit-animation: class2 0.2s ease forwards;
+}
+.class3{
+	-webkit-animation: class3 0.2s ease forwards;
+}
+.classout0{
+	-webkit-animation: classout0 0.2s ease forwards;
+}
+.classout1{
+	-webkit-animation: classout1 0.2s ease forwards;
+}
+.classout2{
+	-webkit-animation: classout2 0.2s ease forwards;
+}
+.classout3{
+	-webkit-animation: classout3 0.2s ease forwards;
+}
+@-webkit-keyframes class0{
+	from{bottom: 100%; left: 0;}
+	to{bottom:0%; left: 0;}
+}
+@-webkit-keyframes class1{
+	from{bottom: 0; left: 100%;}
+	to{bottom:0; left: 0%;}
+}
+@-webkit-keyframes class2{
+	from{bottom: -100%; left: 0;}
+	to{bottom: 0%; left: 0;}
+}
+@-webkit-keyframes class3{
+	from{bottom: 0; left: -100%;}
+	to{bottom:0; left: 0;}
+}
+@-webkit-keyframes classout0{
+	from{bottom: 0%; }
+	to{bottom:100%; }
+}
+@-webkit-keyframes classout1{
+	from{left: 0; bottom: 0;}
+	to{left: 100%; bottom: 0;}
+}
+@-webkit-keyframes classout2{
+	from{bottom: 0%; }
+	to{bottom:-100%; }
+}
+@-webkit-keyframes classout3{
+	from{left: 0; bottom: 0;}
+	to{left: -100%; bottom: 0;}
+}
+.wrap{width:400px;height:200px;background:#33aa00;display:inline-block;font-size:20px;text-align:center;line-height:100px;}
+.shodow{width:400px;height:200px;background:red;opacity:0.2;position: absolute;pointer-events:none;}
+</style>
+<script type="text/javascript" src="button案例/js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow">1</div>
+</div>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow"></div>
+</div>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow"></div>
+</div>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow"></div>
+</div>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow"></div>
+</div>
+<div class="block1">
+	<div class="wrap">方向反馈</div>
+	<div class="shodow"></div>
+</div>
+<div style="clear: both;">
+<p>鼠标指针位于： <span id="f1"></span></p>
+<p>鼠标指针位于： <span id="f2"></span></p>
+<p>鼠标指针位于： <span id="f3"></span></p>
+<p>鼠标指针位于： <span id="f4"></span></p>
+</div>
+<script type="text/javascript">
+$(".wrap").bind("mouseenter mouseleave",
+function(e) {
+	var w = $(this).width();
+	var h = $(this).height();
+	var shodow = this.nextSibling.nextSibling;
+	var x = (e.pageX - $(this).offset().left - (w / 2)) * (w > h ? (h / w) : 1);
+	var y = (e.pageY - $(this).offset().top - (h / 2)) * (h > w ? (w / h) : 1);
+	var x2 = e.pageX - this.parentNode.offsetLeft - (w / 2);
+	var y2 = e.pageY - this.parentNode.offsetTop - (h / 2);
+	$("#f2").text("X1: " + x + ", Y1: " + y);
+	$("#f3").text("X2: " + x2 + ", Y2: " + y2 + "w"+shodow.innerHTML);
+	$("#f4").text("X3: " + this.parentNode.offsetLeft + ", Y3: " + this.parentNode.offsetTop);
+	var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+	var eventType = e.type;
+	var dirName = new Array('上方','右侧','下方','左侧');
+	if(e.type == 'mouseenter'){
+		$(this).html(dirName[direction]+'进入');
+		shodow.className='shodow class'+direction;
+	}else{
+		$(this).html(dirName[direction]+'离开');
+		shodow.className='shodow classout'+direction;
+	}
+});
+$(document).ready(function(){
+$(document).mousemove(function(e){ 
+    $("#f1").text("X: " + e.pageX + ", Y: " + e.pageY); 
+});
+});
+</script>
+</body>
+</html>

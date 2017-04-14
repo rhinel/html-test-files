@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.block{
+				width: 100%;
+				height:600px;
+			}
+			.body{
+				background: cornflowerblue;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				
+			}
+			.main{
+				width: 577px;
+				height: 359px;
+				position: absolute;
+				left: 50%;
+				top:50%;
+				margin-left: -288.5px;
+  				margin-top: -199.5px;
+  				-webkit-perspective: 500px;
+				-webkit-transform-origin:50% 50%;
+			}
+			li{
+				position: absolute;
+				top:0;
+				left: 0;
+				backface-visibility:hidden;
+				-webkit-transform-style: preserve-3d;
+				list-style-type: none;
+			}
+			ul{
+				-webkit-animation: imground2 45s linear infinite;
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			ul li:nth-of-type(1){
+				-webkit-transform: translateX(0) translateY(0) translateZ(20px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+			}
+			ul li:nth-of-type(2){
+				-webkit-transform: translateX(0) translateY(0) translateZ(60px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+			}
+			ul li:nth-of-type(3){
+				-webkit-transform: translateX(0) translateY(0) translateZ(60px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+			}
+			ul li:nth-of-type(4){
+				-webkit-transform: translateX(0) translateY(0) translateZ(20px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+			}
+			ul li:nth-of-type(5){
+				-webkit-transform: translateX(0) translateY(0) translateZ(-20px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+			}
+			@-webkit-keyframes imground2{
+				from{-webkit-transform:rotateY(0deg);}
+				to{-webkit-transform:rotateY(359deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="block">
+			<div class="body">
+				<div class="main">
+					<ul>
+						<li><img width="577px" height="359px" src="http://browser.qq.com/mac/images/better_title.png" /></li>
+						<li><img width="577px" height="359px" src="http://browser.qq.com/mac/images/better.png" /></li>
+						<li><img width="577px" height="359px" src="http://browser.qq.com/mac/images/page1_main_1new.png" /></li>
+						<li><img width="577px" height="359px" src="http://browser.qq.com/mac/images/page1_main_2new.png" /></li>
+						<li><img width="577px" height="359px" src="http://browser.qq.com/mac/images/page1_main_4.png" /></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

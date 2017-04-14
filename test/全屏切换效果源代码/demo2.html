@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html, body{
+			height: 100%;
+			overflow: hidden;
+		}
+		#container, .sections, .section{
+			height: 100%;
+		}
+		#section0,#section1,#section2,#section3{
+			background-color: #000;
+			background-size: cover;
+			background-position: 50% 50%;
+			text-align: center;
+			color: white;
+		}
+		#section0{
+			background-image: url(images/1.jpg);
+		}
+		#section1{
+			background-image: url(images/2.jpg);
+		}
+		#section2{
+			background-image: url(images/3.jpg);
+		}
+		#section3{
+			background-image: url(images/4.jpg);
+		}
+		.pages{
+			position:fixed;
+			right: 10px;
+			top: 50%;
+			list-style: none;
+		}
+		.pages li{
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #fff;
+			margin: 0 0 10px 5px;
+		}
+		.pages li.active{
+			width: 14px;
+			height: 14px;
+			border: 2px solid #FFFE00;
+			background: none;
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="sections">
+			<div class="section" id="section0">
+				<h3>this is the page1</h3>
+			</div>
+			<div class="section" id="section1">
+				<h3>this is the page2</h3>
+			</div>
+			<div class="section" id="section2">
+				<h3>this is the page3</h3>
+			</div>
+			<div class="section" id="section3">
+				<h3>this is the page4</h3>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="jqchange.js"></script>
+	<script type="text/javascript">
+		$('#container').PageSwitch();
+	</script>
+</body>
+</html>

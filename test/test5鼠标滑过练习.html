@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="http://www.imooc.com/data/jquery-1.8.2.min.js" type="text/javascript"></script>
+<style type="text/css">
+        li{
+            margin-bottom: 5px;
+            width: 50px;
+        }
+        .color{background:#999;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+        <li>fff</li>
+    </ul>
+    <script type="text/javascript">
+            (function($){
+                $.extend({
+                    "color1":function(obj){
+                        $(obj).addClass("color");
+                    },
+                    "color2":function(obj){
+                        $(obj).removeClass("color");
+                    }
+                })
+                 
+            })(jQuery);
+             
+            $(function(){
+                $("li").hover(
+                    function(){
+                        $.color1(this);
+                    },function(){
+                        $.color2(this);
+                    });
+            });
+    </script>
+</body>
+</html>
