@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>move box</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #main {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .scroll-wrap {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    .scroll-box {
+      height: 50px;
+      width: 50px;
+      background-color: green;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+      transform: translate3d(50vw, 50vh, 0);
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div class="scroll-wrap">
+      <div class="scroll-box"></div>
+    </div>
+  </div>
+
+  <script>
+    let movingBox = null
+    const moveBox = document.querySelector('.scroll-wrap .scroll-box')
+
+    const windowOffset = {
+      x: document.documentElement.clientWidth,
+      y: document.documentElement.clientHeight,
+    }
+
+    const movingBoxOffset = {
+      x: 0,
+      y: 0,
+    }
+
+    const moveOffset = {
+      x: 0,
+      y: 0,
+    }
+
+    moveBox.onmousedown = function(e) {
+      e.preventDefault()
+      e.stopPropagation()
+
+      movingBox = e
+      movingBoxOffset.x = e.offsetX || e.layerX
+      movingBoxOffset.y = e.offsetY || e.layerY
+    }
+
+    window.onmousemove = function(e) {
+      if (!movingBox) return
+
+      const transX = Math.min(Math.max(e.pageX, movingBoxOffset.x), windowOffset.x - 50 + movingBoxOffset.x)
+      const transY = Math.min(Math.max(e.pageY, movingBoxOffset.y), windowOffset.y - 50 + movingBoxOffset.y)
+
+      moveBox.style.transform =
+        'translate3D(' +
+        (transX - movingBoxOffset.x) +
+        'px, ' +
+        (transY - movingBoxOffset.y) +
+        'px, 0)'
+    }
+
+    window.onmouseup = function() {
+      movingBox = null
+    }
+  </script>
+</body>
+</html>
